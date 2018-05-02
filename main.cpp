@@ -3,6 +3,10 @@
 #include <fstream>
 #include <math.h>
 
+static double Pi=3.1415926535;
+
+#include "color_functions.h"
+
 using namespace std;
 
 static int xsize=100;
@@ -12,7 +16,7 @@ static double dy=1.;
 static double v=10e-02;
 double dt;
 
-double tim;
+int tim;
 
 #include "Block.h"
 
@@ -33,7 +37,7 @@ int main()
 
     dt=1;
 
-    cout << dt*v << endl;
+    cout << R(0.5,2) << endl;
 
     Block space[xsize][ysize];
 
@@ -43,14 +47,33 @@ int main()
         {
             if( (i>=10) && (i<=30) && (j>40) && (j<=60) )
             {
-                space[i][j]=Block(i,j,100);
+                space[i][j]=Block(i,j,200);
             }
             else
             {
-                space[i][j]=Block(i,j,50);
+                space[i][j]=Block(i,j,10);
             }
         }
     }
+
+
+    sf::Font font;
+    if (!font.loadFromFile("UbuntuMono-R.ttf"))
+    {
+        std::cout << "Error loading font\n" ;
+    }
+
+    sf::Text atext;
+    atext.setFont(font);
+    atext.setCharacterSize(20);
+    atext.setStyle(sf::Text::Bold);
+    atext.setFillColor(sf::Color::White);
+    atext.setPosition(250,0);
+
+    std::string s="0";
+
+
+
 
     #include "window.h"
 

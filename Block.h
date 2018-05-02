@@ -16,7 +16,7 @@ class Block : public sf::Drawable
             marker=sf::CircleShape(1.5);
             marker.setPosition(2*row,2*col);
             //
-            color=sf::Color((T-50)*255/100,60,100);
+            color=sf::Color(R(T/255.,1),R(T/255.,2),R(T/255.,3));
             marker.setFillColor(color);
         }
         Block(){}
@@ -24,7 +24,7 @@ class Block : public sf::Drawable
 
         void update(void)
         {
-            color=sf::Color((T-50)*255/100,60,100);
+            color=sf::Color(R(T/255.,1),R(T/255.,2),R(T/255.,3));
             marker.setFillColor(color);
         }
     protected:
